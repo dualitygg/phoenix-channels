@@ -4,7 +4,7 @@
   "description": "Phoenix Channels Client",
   "main": "src/index.js",
   "scripts": {
-    "mocha": "mocha ./test/**/*.js --compilers js:babel-register -r jsdom-global/register",
+    "mocha": "mocha ./test/**/*.js -r babel-register -r jsdom-global/register --exit",
     "lint": "eslint ./src",
     "test": "npm run lint && npm run mocha"
   },
@@ -27,7 +27,7 @@
     "eslint": "^7.20.0",
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "~2.4.4",
+    "mocha": "~8.3.0",
     "mock-socket": "^6.0.1",
     "sinon": "^1.17.6"
   }
