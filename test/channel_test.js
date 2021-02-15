@@ -68,7 +68,7 @@ describe("join", () => {
   })
 
   it("triggers socket push with channel params", () => {
-    sinon.stub(socket, "makeRef", () => defaultRef)
+    sinon.stub(socket, "makeRef").callsFake(() => defaultRef)
     const spy = sinon.spy(socket, "push")
 
     channel.join()
@@ -98,7 +98,7 @@ describe("join", () => {
 
     const helpers = {
       receiveSocketOpen() {
-        sinon.stub(socket, "isConnected", () => true)
+        sinon.stub(socket, "isConnected").callsFake(() => true)
         socket.onConnOpen()
       }
     }
@@ -440,8 +440,8 @@ describe("onError", () => {
     clock = sinon.useFakeTimers()
 
     socket = new Socket("/socket", { timeout: defaultTimeout })
-    sinon.stub(socket, "isConnected", () => true)
-    sinon.stub(socket, "push", () => true)
+    sinon.stub(socket, "isConnected").callsFake(() => true)
+    sinon.stub(socket, "push").callsFake(() => true)
 
     channel = socket.channel("topic", { one: "two" })
 
@@ -533,8 +533,8 @@ describe("onClose", () => {
     clock = sinon.useFakeTimers()
 
     socket = new Socket("/socket", { timeout: defaultTimeout })
-    sinon.stub(socket, "isConnected", () => true)
-    sinon.stub(socket, "push", () => true)
+    sinon.stub(socket, "isConnected").callsFake(() => true)
+    sinon.stub(socket, "push").callsFake(() => true)
 
     channel = socket.channel("topic", { one: "two" })
 
@@ -596,7 +596,7 @@ describe("onMessage", () => {
   })
 
   it("returns payload by default", () => {
-    sinon.stub(socket, "makeRef", () => defaultRef)
+    sinon.stub(socket, "makeRef").callsFake(() => defaultRef)
     const payload = channel.onMessage("event", { one: "two" }, defaultRef)
 
     assert.deepEqual(payload, { one: "two" })
@@ -640,7 +640,7 @@ describe("canPush", () => {
 describe("on", () => {
   beforeEach(() => {
     socket = new Socket("/socket")
-    sinon.stub(socket, "makeRef", () => defaultRef)
+    sinon.stub(socket, "makeRef").callsFake(() => defaultRef)
 
     channel = socket.channel("topic", { one: "two" })
   })
@@ -677,7 +677,7 @@ describe("on", () => {
 describe("off", () => {
   beforeEach(() => {
     socket = new Socket("/socket")
-    sinon.stub(socket, "makeRef", () => defaultRef)
+    sinon.stub(socket, "makeRef").callsFake(() => defaultRef)
 
     channel = socket.channel("topic", { one: "two" })
   })
@@ -717,8 +717,8 @@ describe("push", () => {
     clock = sinon.useFakeTimers()
 
     socket = new Socket("/socket", { timeout: defaultTimeout })
-    sinon.stub(socket, "makeRef", () => defaultRef)
-    sinon.stub(socket, "isConnected", () => true)
+    sinon.stub(socket, "makeRef").callsFake(() => defaultRef)
+    sinon.stub(socket, "isConnected").callsFake(() => true)
     socketSpy = sinon.stub(socket, "push")
 
     channel = socket.channel("topic", { one: "two" })
@@ -815,7 +815,7 @@ describe("leave", () => {
     clock = sinon.useFakeTimers()
 
     socket = new Socket("/socket", { timeout: defaultTimeout })
-    sinon.stub(socket, "isConnected", () => true)
+    sinon.stub(socket, "isConnected").callsFake(() => true)
     socketSpy = sinon.stub(socket, "push")
 
     channel = socket.channel("topic", { one: "two" })
@@ -827,7 +827,7 @@ describe("leave", () => {
   })
 
   it("unsubscribes from server events", () => {
-    sinon.stub(socket, "makeRef", () => defaultRef)
+    sinon.stub(socket, "makeRef").callsFake(() => defaultRef)
 
     channel.leave()
 
