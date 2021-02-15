@@ -1,6 +1,6 @@
 {
-  "name": "phoenix-channels",
-  "version": "1.0.0",
+  "name": "@dualitygg/phoenix-channels",
+  "version": "1.0.1",
   "description": "Phoenix Channels Client",
   "main": "src/index.js",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/mcampa/phoenix-client.git"
+    "url": "git+ssh://git@github.com/dualitygg/phoenix-client.git"
   },
-  "author": "Chris McCord <chris@chrismccord.com> (http://www.phoenixframework.org)",
+  "author": "William Weckl <william@dualitygg>. Forked from https://github.com/mcampa/phoenix-channels.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mcampa/phoenix-client/issues"
+    "url": "https://github.com/dualitygg/phoenix-client/issues"
   },
-  "homepage": "https://github.com/mcampa/phoenix-client#readme",
+  "homepage": "https://github.com/dualitygg/phoenix-client#readme",
   "dependencies": {
     "websocket": "^1.0.33"
   },
